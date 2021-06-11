@@ -35,6 +35,7 @@ sap.ui.define(["sap/ui/model/json/JSONModel"], function (JSONModel) {
     },
   };
 
+  /*
   async function sendRequest(path, opts = {}) {
     const headers = Object.assign({}, opts.headers || {}, {
       "Content-type": "application/json; charset=UTF-8",
@@ -53,8 +54,12 @@ sap.ui.define(["sap/ui/model/json/JSONModel"], function (JSONModel) {
     }
 
     return data;
+  }*/
+  
+  async function sendRequest(path, opts = {}) {
+    return [{order_id: "101", description: "《射雕英雄传》", 
+  created: "2021-1-2"}];
   }
-
   function getAPIURL() {
     if (apiUrl === undefined) {
       var oModel = new JSONModel({});
