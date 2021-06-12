@@ -33,6 +33,18 @@ sap.ui.define(["sap/ui/model/json/JSONModel"], function (JSONModel) {
         method: "DELETE",
       });
     },
+    getAPIURL: function () {
+      if (apiUrl === undefined) {
+        var oModel = new JSONModel({});
+        var configUrl = jQuery.sap.getModulePath("kyma.sample.app", "/config.json");
+        oModel.loadData(configUrl, "", false);
+        apiUrl = oModel.getProperty("/API_URL");
+        console.log(apiUrl);
+        apiUrl = apiUrl.endsWith("/") ? apiUrl.slice(0, -1) : apiUrl;
+      }
+  
+      return apiUrl;
+    }
   };
 
   /*
@@ -59,17 +71,5 @@ sap.ui.define(["sap/ui/model/json/JSONModel"], function (JSONModel) {
   async function sendRequest(path, opts = {}) {
     return [{order_id: "101", description: "《射雕英雄传》", 
   created: "2021-1-2"}];
-  }
-  function getAPIURL() {
-    if (apiUrl === undefined) {
-      var oModel = new JSONModel({});
-      var configUrl = jQuery.sap.getModulePath("kyma.sample.app", "/config.json");
-      oModel.loadData(configUrl, "", false);
-      apiUrl = oModel.getProperty("/API_URL");
-      console.log(apiUrl);
-      apiUrl = apiUrl.endsWith("/") ? apiUrl.slice(0, -1) : apiUrl;
-    }
-
-    return apiUrl;
   }
 });

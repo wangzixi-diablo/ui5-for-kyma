@@ -1,7 +1,7 @@
 {
   "name": "frontend-ui5-mssql",
   "version": "0.1.0",
-  "description": "Kyma Sample App - frontend-ui5-mssql",
+  "description": "Kyma Sample App",
   "private": true,
   "scripts": {
     "start": "ui5 serve -o index.html",

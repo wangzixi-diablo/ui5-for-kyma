@@ -9,8 +9,13 @@ sap.ui.define(["sap/ui/model/json/JSONModel", "sap/ui/Device"], function (JSONMo
     },
 
     createOrdersModel: function () {
-      const model = new JSONModel();
+      var model = new JSONModel();
       return model;
     },
+    
+    createOrdersModelWithMockData: function(){
+      var model = new JSONModel("model/orders.json");
+      return model;
+    }
   };
 });
