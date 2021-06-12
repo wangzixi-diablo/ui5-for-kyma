@@ -9,7 +9,7 @@ sap.ui.define(["sap/ui/model/json/JSONModel"], function (JSONModel) {
     },
 
     getOrders: async function () {
-      return sendRequest("https://jerryui5.c-46d70f2.kyma.shoot.live.k8s-hana.ondemand.com/", {
+      return sendRequest( this.getAPIURL(), {
         method: "GET",
       });
     },
