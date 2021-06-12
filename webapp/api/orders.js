@@ -9,7 +9,7 @@ sap.ui.define(["sap/ui/model/json/JSONModel"], function (JSONModel) {
     },
 
     getOrders: async function () {
-      return sendRequest("/orders", {
+      return sendRequest("https://jerryui5.c-46d70f2.kyma.shoot.live.k8s-hana.ondemand.com/", {
         method: "GET",
       });
     },
@@ -46,16 +46,13 @@ sap.ui.define(["sap/ui/model/json/JSONModel"], function (JSONModel) {
       return apiUrl;
     }
   };
-
-  /*
-  async function sendRequest(path, opts = {}) {
+  
+  async function sendRequest(path, opts) {
     const headers = Object.assign({}, opts.headers || {}, {
       "Content-type": "application/json; charset=UTF-8",
     });
 
-    const response = await fetch(
-      getAPIURL() + path,
-      Object.assign({ method: "POST", credentials: "same-origin" }, opts, { headers })
+    const response = await fetch(path, Object.assign({ method: "POST", credentials: "same-origin" }, opts, { headers })
     );
 
     const data = await response.json();
@@ -64,12 +61,6 @@ sap.ui.define(["sap/ui/model/json/JSONModel"], function (JSONModel) {
       console.log(data.error);
       throw new Error(`${response.status} Message: ${data.message}`);
     }
-
     return data;
-  }*/
-  
-  async function sendRequest(path, opts = {}) {
-    return [{order_id: "101", description: "《射雕英雄传》", 
-  created: "2021-1-2"}];
   }
 });
