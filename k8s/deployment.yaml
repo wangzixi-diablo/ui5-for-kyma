@@ -1,22 +1,22 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: fe-ui5-mssql
+  name: jerry-ui5-kyma
   labels:
-    app: fe-ui5-mssql
+    app: jerry-ui5-kyma
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: fe-ui5-mssql
+      app: jerry-ui5-kyma
   template:
     metadata:
       labels:
-        app: fe-ui5-mssql
+        app: jerry-ui5-kyma
     spec:
       containers:
-        - name: fe-ui5-mssql
-          image: i042416/fe-ui5-mssql
+        - name: jerry-ui5-kyma
+          image: i042416/ui5-kyma
           imagePullPolicy: Always
           ports:
             - name: http
@@ -28,17 +28,17 @@ spec:
       volumes:
         - name: config-volume
           configMap:
-            name: fe-ui5-mssql
+            name: jerry-ui5-kyma
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: fe-ui5-mssql
+  name: jerry-ui5-kyma
   labels:
-    app: fe-ui5-mssql
+    app: jerry-ui5-kyma
 spec:
   ports:
     - name: http
       port: 80
   selector:
-    app: fe-ui5-mssql
+    app: jerry-ui5-kyma

@@ -1,11 +1,11 @@
 kind: ConfigMap
 apiVersion: v1
 metadata:
-  name: fe-ui5-mssql
+  name: jerry-ui5-kyma
   labels:
-    app: fe-ui5-mssql
+    app: jerry-ui5-kyma
 data:
   config.json: |-
     {
-      "API_URL": "https://api-mssql-go.i042416"
+      "API_URL": "https://jerryui5.c-46d70f2.kyma.shoot.live.k8s-hana.ondemand.com/"
     }
